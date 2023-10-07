@@ -1,0 +1,424 @@
+[
+    {
+        "id": "2c8ce7307254da7b",
+        "type": "link out",
+        "z": "e039a479b0efefad",
+        "name": "influxTime",
+        "mode": "link",
+        "links": [
+            "16305cdb9c6807c0"
+        ],
+        "x": 1565,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "247d9213efac8be8",
+        "type": "change",
+        "z": "e039a479b0efefad",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "influxTime",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1430,
+        "y": 400,
+        "wires": [
+            [
+                "2c8ce7307254da7b"
+            ]
+        ]
+    },
+    {
+        "id": "b82a9e81ee335ed8",
+        "type": "group",
+        "z": "e039a479b0efefad",
+        "name": "Influx Query Time",
+        "style": {
+            "stroke": "#001f60",
+            "fill": "#bfdbef",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "54dc07c9136ec2a9",
+            "c56784190959fd26",
+            "79e539a4bb91fec7",
+            "5df7d5c2bd8a65da",
+            "187a8c80880f6e2d",
+            "442224bfc6230a80",
+            "d661a0fe0b206003",
+            "b2dc39b0fa82d7c1",
+            "4d676c23f79076bb"
+        ],
+        "x": 304,
+        "y": 359,
+        "w": 1002,
+        "h": 182
+    },
+    {
+        "id": "54dc07c9136ec2a9",
+        "type": "ui_button",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "Query",
+        "group": "b701d523cabe8031",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Query",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 990,
+        "y": 500,
+        "wires": [
+            [
+                "b2dc39b0fa82d7c1"
+            ]
+        ]
+    },
+    {
+        "id": "c56784190959fd26",
+        "type": "ui_dropdown",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "From",
+        "label": "From",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "b701d523cabe8031",
+        "order": 1,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "today",
+                "value": "today",
+                "type": "str"
+            },
+            {
+                "label": "yesterday",
+                "value": "yesterday",
+                "type": "str"
+            },
+            {
+                "label": "Last 30 miniutes",
+                "value": "-30m",
+                "type": "str"
+            },
+            {
+                "label": "Last hour",
+                "value": "-1h",
+                "type": "str"
+            },
+            {
+                "label": "Last 2 hours",
+                "value": "-2h",
+                "type": "str"
+            },
+            {
+                "label": "Last 3 hours",
+                "value": "-3h",
+                "type": "str"
+            },
+            {
+                "label": "Last 6 hours",
+                "value": "-6h",
+                "type": "str"
+            },
+            {
+                "label": "Last 12 hours",
+                "value": "-12h",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 790,
+        "y": 400,
+        "wires": [
+            [
+                "5df7d5c2bd8a65da"
+            ]
+        ]
+    },
+    {
+        "id": "79e539a4bb91fec7",
+        "type": "change",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "influxStart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "influxStart",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "c56784190959fd26"
+            ]
+        ]
+    },
+    {
+        "id": "5df7d5c2bd8a65da",
+        "type": "change",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "influxStart",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 400,
+        "wires": [
+            [
+                "b2dc39b0fa82d7c1"
+            ]
+        ]
+    },
+    {
+        "id": "187a8c80880f6e2d",
+        "type": "ui_dropdown",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "To",
+        "label": "To",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "b701d523cabe8031",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Now",
+                "value": "now()",
+                "type": "str"
+            },
+            {
+                "label": "yesterday",
+                "value": "yesterday",
+                "type": "str"
+            },
+            {
+                "label": "today",
+                "value": "today",
+                "type": "str"
+            },
+            {
+                "label": "Last 30 miniutes",
+                "value": "-30m",
+                "type": "str"
+            },
+            {
+                "label": "Last hour",
+                "value": "-1h",
+                "type": "str"
+            },
+            {
+                "label": "Last 2 hours",
+                "value": "-2h",
+                "type": "str"
+            },
+            {
+                "label": "Last 3 hours",
+                "value": "-3h",
+                "type": "str"
+            },
+            {
+                "label": "Lag 6 hours",
+                "value": "-6h",
+                "type": "str"
+            },
+            {
+                "label": "Last 12 hours",
+                "value": "-12h",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "d661a0fe0b206003"
+            ]
+        ]
+    },
+    {
+        "id": "442224bfc6230a80",
+        "type": "change",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "influxStop",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "influxStart",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 440,
+        "wires": [
+            [
+                "187a8c80880f6e2d"
+            ]
+        ]
+    },
+    {
+        "id": "d661a0fe0b206003",
+        "type": "change",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "influxStop",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 440,
+        "wires": [
+            [
+                "b2dc39b0fa82d7c1"
+            ]
+        ]
+    },
+    {
+        "id": "b2dc39b0fa82d7c1",
+        "type": "function",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "Generate Query",
+        "func": "var influxStart = flow.get(\"influxStart\") || \"today\";\nvar influxStop = flow.get(\"influxStop\") || \"now()\";\n\nvar influxTime = \" time >= \";\nif (influxStart === \"today\" || influxStart === \"yesterday\") {\n    if( influxStart === \"today\") {\n        var d = new Date();\n        d.setHours(0,0,0,0);\n        influxStart = d.getTime();\n    }\n    if (influxStart === \"yesterday\") {\n        var d = new Date();\n        d.setDate(d.getDate() - 1);\n        d.setHours(0, 0, 0, 0);\n        influxStart = d.getTime();\n    }\n    influxTime += influxStart;\n} else {\n    influxTime += \"now()\" + influxStart;\n}\n\nif( influxStop !== \"now()\") {\n    if (influxStop === \"today\" || influxStop === \"yesterday\") {\n        if (influxStop === \"today\") {\n            var d = new Date();\n            d.setHours(0, 0, 0, 0);\n            influxStop = d.getTime();\n        }\n        if (influxStop === \"yesterday\") {\n            var d = new Date();\n            d.setDate(d.getDate() - 1);\n            d.setHours(0, 0, 0, 0);\n            influxStop = d.getTime();\n        }\n        influxTime += \" AND time < \" + influxStop;\n    } else {\n        influxTime += \" AND time < now()\" + influxStop;\n    }\n}\n\nmsg.payload = influxTime;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 400,
+        "wires": [
+            [
+                "247d9213efac8be8"
+            ]
+        ]
+    },
+    {
+        "id": "4d676c23f79076bb",
+        "type": "inject",
+        "z": "e039a479b0efefad",
+        "g": "b82a9e81ee335ed8",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [
+                "79e539a4bb91fec7",
+                "442224bfc6230a80"
+            ]
+        ]
+    },
+    {
+        "id": "b701d523cabe8031",
+        "type": "ui_group",
+        "name": "Query DB",
+        "tab": "9f86e9f27ae043bb",
+        "order": 3,
+        "disp": true,
+        "width": "4",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9f86e9f27ae043bb",
+        "type": "ui_tab",
+        "name": "Events",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
